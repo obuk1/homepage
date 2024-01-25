@@ -11,11 +11,12 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function onYouTubePlayerAPIReady() {
     // <div id="player"></div>
     new YT.Player('player', {
-        videoId: 'An6LvWQuj_8', // 최초 재생할 유튜브 영상 ID
+        videoId: 'he0TZwoa7l4', // 최초 재생할 유튜브 영상 ID
         playerVars: {
-            autoplay: true, // 자동 재생 유무
-            loop: true, // 반복 재생 유무
-            playlist: 'An6LvWQuj_8' // 반복 재생할 유튜브 영상 ID 목록
+            'autoplay': 1, // 자동 재생 유무
+            'controls': 0, // control러 유무
+            'loop': true, // 반복 재생 유무
+            'playlist': 'he0TZwoa7l4' // 반복 재생할 유튜브 영상 ID 목록
         },
         events: {
             // 영상이 준비되었을 때,
@@ -24,4 +25,9 @@ function onYouTubePlayerAPIReady() {
             }
         }
     })
+}
+
+function onPlayerReady(event) {
+	player.playVideo();
+	player.mute(); //자동재생하려면 mute해야함
 }
